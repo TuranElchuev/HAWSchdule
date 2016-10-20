@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="out_anim_time">150</integer>
+    <integer name="in_anim_time">250</integer>
+</resources>

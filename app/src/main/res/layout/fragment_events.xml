@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout 
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/selector_button"
+       	android:gravity="center_vertical"
+       	android:padding="@dimen/margin_small">
+           
+        <ImageView
+	        android:layout_width="@dimen/icon_medium"
+	        android:layout_height="@dimen/icon_medium"
+	        android:scaleType="fitXY"
+	        android:padding="@dimen/icon_medium_padding"
+	        android:src="@drawable/ic_back"/>
+	
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            
+            <TextView 
+		        android:id="@+id/text_primary"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/app_secondary_color"
+		        android:textSize="@dimen/text_normal"/>
+		    
+		    <TextView 
+		        android:id="@+id/text_secondary"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/app_secondary_color"
+		        android:textSize="@dimen/text_small"/>
+            		        		    
+        </LinearLayout>      
+        
+        <ImageView 
+	        android:id="@+id/icon_priority"
+	        android:layout_width="@dimen/icon_medium"
+	        android:layout_height="@dimen/icon_medium"
+	        android:scaleType="centerInside"
+	        android:padding="@dimen/icon_small_padding"/>
+        
+   	</LinearLayout>
+    
+   
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/app_main_color"
+        android:dividerHeight="1dp"
+        android:layout_above="@+id/buttons"
+        android:layout_below="@+id/back">
+                
+    </ListView>
+    
+     <View 
+   	    android:layout_width="match_parent"
+   	    android:layout_height="@dimen/shadow_width_m"
+   	    android:background="@drawable/shadow_bottom"
+		android:layout_alignTop="@+id/list"/>
+    
+     <View 
+   	    android:layout_width="match_parent"
+   	    android:layout_height="@dimen/shadow_width_m"
+   	    android:background="@drawable/shadow_top"
+		android:layout_alignBottom="@+id/list"/>
+    
+    <LinearLayout 
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true">
+    
+        <ImageButton 
+	       android:id="@+id/prev"
+	       android:layout_width="0dp"
+	       android:layout_height="@dimen/image_button_medium"
+	       android:layout_weight="1"
+	       android:background="@drawable/selector_button"
+	       android:src="@drawable/prev"
+	       android:scaleType="centerInside"
+	       android:padding="@dimen/icon_medium_padding"/>
+       
+        
+        <Button 
+	       android:id="@+id/select"
+	       android:layout_width="wrap_content"
+	       android:layout_height="@dimen/image_button_medium"
+	       android:paddingLeft="@dimen/margin_large"
+	       android:paddingRight="@dimen/margin_large"
+	       android:textColor="@color/app_secondary_color"
+	       android:background="@drawable/selector_button"/>
+        
+        
+       <ImageButton 
+	       android:id="@+id/next"
+	       android:layout_width="0dp"
+	       android:layout_height="@dimen/image_button_medium"
+	       android:layout_weight="1"
+	       android:background="@drawable/selector_button"
+	       android:src="@drawable/next"
+	       android:scaleType="centerInside"
+	       android:padding="@dimen/icon_medium_padding"/>
+        
+    </LinearLayout>
+    
+</RelativeLayout>

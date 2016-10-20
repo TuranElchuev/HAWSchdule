@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/listview_background_shape">
+    <stroke android:width="@dimen/calendar_today_stroke_width" android:color="@color/calendar_selected_item" />
+    
+    <solid android:color="@color/calendar_item_pressed"/>
+</shape>

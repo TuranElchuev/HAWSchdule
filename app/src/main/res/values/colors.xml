@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="status_bar_color">#0277BD</color>
+    <color name="app_main_color">#0288D1</color>
+    <color name="btn_pressed">#039BE5</color>
+
+	<color name="app_secondary_color">#FFFFFF</color>
+
+
+	<color name="text_list_primary">#424242</color>
+	<color name="text_list_secondary">#80424242</color>
+		   
+    <color name="text_header_color">#EF6C00</color>
+	<color name="calendar_month">#EF6C00</color>
+	<color name="calendar_red">#EF6C00</color>
+	<color name="calendar_selected_item">#EF6C00</color>
+	
+	<color name="calendar_selected_item_pressed">#F57C00</color>
+	
+	<color name="calendar_item_pressed">#E0E0E0</color>
+	<color name="calendar_odd_month">#200288D1</color>
+	
+	<color name="text_warning">#DD2C00</color>
+	
+	<color name="white">#FFFFFF</color>
+	
+	
+	<color name="shadow_light_dark">#38000000</color>
+	<color name="shadow_light_middle">#17000000</color>
+	<color name="shadow_light_light">#00000000</color>
+	
+	<color name="shadow_dark_dark">#50000000</color>
+	<color name="shadow_dark_middle">#25000000</color>
+	<color name="shadow_dark_light">#00000000</color>
+
+	<color name="priority_high">#ef5350</color>
+	<color name="priority_medium">#4CAF50</color>
+	<color name="priority_low">#29B6F6</color>
+    	   
+</resources>
+

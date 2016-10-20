@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout 
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/selector_button"
+       	android:gravity="center_vertical">
+    
+        <ImageView
+	        android:layout_width="@dimen/icon_medium"
+	        android:layout_height="@dimen/icon_medium"
+	        android:scaleType="fitXY"
+	        android:padding="@dimen/icon_medium_padding"
+	        android:src="@drawable/ic_back"/>
+        
+        <TextView 
+	        android:id="@+id/header"
+	        android:layout_width="0dp"
+	        android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/app_secondary_color"
+	        android:textSize="@dimen/text_large"
+	        android:padding="@dimen/margin_normal"/>
+     
+        
+    </LinearLayout>
+     
+     <LinearLayout 
+        android:id="@+id/calendar_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/app_main_color"
+        android:layout_below="@+id/back"
+        >
+        
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:textSize="@dimen/text_small"/>
+        
+       
+        
+       <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/mo"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+        
+        <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/tu"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+        
+        <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/we"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+        
+        <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/th"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+        
+        <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/fr"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+        <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/sa"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+        
+        <TextView 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:lines="1"
+	        android:text="@string/su"
+	        android:textSize="@dimen/text_small"
+	        android:textColor="@color/app_secondary_color"
+	        android:gravity="center"/>
+        
+        
+
+        
+    </LinearLayout>
+    
+     
+     
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:layout_above="@+id/cancel"
+        android:layout_below="@+id/calendar_header">
+                
+    </ListView>
+
+    <View 
+   	    android:layout_width="match_parent"
+   	    android:layout_height="@dimen/shadow_width_m"
+   	    android:background="@drawable/shadow_bottom"
+		android:layout_alignTop="@+id/list"/>
+    
+    <View 
+   	    android:layout_width="match_parent"
+   	    android:layout_height="@dimen/shadow_width_m"
+   	    android:background="@drawable/shadow_top"
+		android:layout_alignBottom="@+id/list"/>
+    
+    <Button 
+	      android:id="@+id/cancel"
+	      android:layout_width="match_parent"
+	      android:layout_height="wrap_content"
+	      android:textColor="@color/app_secondary_color"
+	      android:textStyle="bold"
+	      android:background="@drawable/selector_button"
+	      android:text="@string/cancel"
+	      android:visibility="gone"/>
+	    
+</RelativeLayout>

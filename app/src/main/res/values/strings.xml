@@ -1,0 +1,131 @@
+<resources>
+
+
+    <string name="save_configuration">Save configuration</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="nothing_to_save">Nothing to save</string>
+    <string name="saved">SAVED</string>
+    <string name="hide_expired">Hide expired</string>
+    <string name="should_update_schedule">For the first use you should update your schedule.\nGo to My Calendars and press refresh button.</string>
+    <string name="settings">Settings</string>
+    <string name="important">Important</string>
+    <string name="need_storage_permission">The app needs Storage permission for import of calendar files. Please press Ok and allow access in the next dialog. If the next dialog does not appear, relaunch the App and press Settings to proceed to the menu where you can enable Storage permission. For the further questions please contact the developer.</string>
+
+
+    <string name="app_name">HAW Schedule</string>
+
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="weekday">Weekday</string>
+    <string name="subject">Subject</string>
+    <string name="calendars">My Calendars</string>
+    <string name="diagram">Diagram</string>
+    <string name="feedback">Feedback</string>
+    <string name="share">Share</string>
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <string name="mo">Mo</string>
+    <string name="tu">Tu</string>
+    <string name="we">We</string>
+    <string name="th">Th</string>
+    <string name="fr">Fr</string>
+    <string name="sa">Sa</string>
+    <string name="su">Su</string>
+
+    <string name="jan">January</string>
+    <string name="feb">February</string>
+    <string name="mar">March</string>
+    <string name="apr">April</string>
+    <string name="may">May</string>
+    <string name="jun">June</string>
+    <string name="jul">July</string>
+    <string name="auq">Auqust</string>
+    <string name="sep">September</string>
+    <string name="oct">October</string>
+    <string name="nov">November</string>
+    <string name="dec">December</string>
+
+
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+    <string name="add">ADD</string>
+    <string name="download_file">Download file</string>
+    <string name="delete_calendar">Delete calendar</string>
+    <string name="update_all_calendars">Update all calendars</string>
+    <string name="delete_all_calendars">Delete all calendars</string>
+    <string name="set_prority">Set attendance priority</string>
+    <string name="low">LOW</string>
+    <string name="medium">MEDIUM</string>
+    <string name="high">HIGH</string>
+
+    <string name="added">ADDED</string>
+    <string name="failed_to_download">FAILED TO DOWNLOAD:</string>
+    <string name="failed_to_import">FAILED TO IMPORT:</string>
+    <string name="failed_to_update">FAILED TO UPDATE:</string>
+
+    <string name="version">version</string>
+    <string name="imported">imported</string>
+
+    <string name="select_day">Select the day</string>
+    <string name="select_week">Select the week</string>
+    <string name="select_weekday">Select the weekday</string>
+    <string name="select_subject">Select the subject</string>
+
+    <string name="downloading">Downloading...</string>
+    <string name="importing">Importing...</string>
+    <string name="updating_calendars">Updating the calendars...</string>
+
+    <string name="download_cancelled">Downloading cancelled</string>
+
+    <string name="canceled">CANCELED</string>
+    <string name="not_all_updated">NOT ALL CALENDARS WERE UPDATED!</string>
+    <string name="schedule_updated">SCHEDULE HAS BEEN UPDATED</string>
+    <string name="all_calendars_deleted">ALL CALENDARS HAVE BEEN DELETED</string>
+
+    <string name="have_no_calendars">You have not imported any calendar</string>
+    <string name="have_no_calendars_add">You have not imported any calendar.\nPress \"ADD\" button to download calendars.</string>
+    <string name="have_no_calendars_my_calendars">You have not imported any calendar.\nGo to \"My Calendars\" to download calendars.</string>
+
+    <!-- INFO DIALOG -->
+    <string name="info">Info</string>
+    <string name="info_add">Opens a web page with the list of calendars.\nSelect a calendar from the list to download it.\nRe-downloaded calendar will overwrite the previous version.</string>
+    <string name="info_update_all">Updates existing calendars up to the latest versions.</string>
+    <string name="info_delete_all">Deletes all calendars.</string>
+    <string name="info_enabled">State \"Enabled\".\nIn this state the events of the calendar will appear in the schedule.</string>
+    <string name="info_disabled">State \"Disabled\".\nIn this state the events of the calendar will NOT appear in the schedule.</string>
+    <string name="info_high">Events of the calendar have HIGH priority.</string>
+    <string name="info_medium">Events of the calendar have MEDIUM priority.</string>
+    <string name="info_low">Events of the calendar have LOW priority.</string>
+    <string name="info_priority">*The priority of the calendar does not influence its behaviour and serves as an informative field only.</string>
+
+    <string name="in">in</string>
+    <string name="days">days</string>
+    <string name="ago">ago</string>
+    <string name="yesterday">yesterday</string>
+    <string name="today">today</string>
+    <string name="tomorrow">tomorrow</string>
+    <string name="weeks">weeks</string>
+    <string name="this_week">this week</string>
+    <string name="next_week">next week</string>
+    <string name="last_week">last week</string>
+    <string name="week_no">week No.</string>
+
+    <string name="no_upcoming_events">You do not have any upcoming event</string>
+    <string name="please_select_subject">Please select a subject</string>
+    <string name="please_select_weekday">Please select a weekday</string>
+
+    <string name="share_text">HAW Schedule.\nA simple study schedule app for the students of HAW Hamburg TI Department:\n</string>
+
+</resources>
+
+
+
+

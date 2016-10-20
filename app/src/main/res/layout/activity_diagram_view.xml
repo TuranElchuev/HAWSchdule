@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.yev.dev.haw_sched2.views.MySlidingPaneLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/frame_navigation"
+            android:layout_width="@dimen/navigation_width_large"
+            android:layout_height="match_parent" >
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+    </com.yev.dev.haw_sched2.views.MySlidingPaneLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_width_s"
+        android:background="@drawable/shadow_bottom"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_width_s"
+        android:background="@drawable/shadow_top"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

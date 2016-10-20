@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout 
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/calendar_row_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        
+        <TextView 
+            android:id="@+id/t_week"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:lines="1"
+            android:textSize="@dimen/text_calendar"
+            android:textColor="@color/text_list_primary"
+	        android:gravity="center|bottom"
+            android:textStyle="bold"
+        	android:paddingBottom="@dimen/margin_small"/>
+       
+        <View 
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/app_main_color"/>
+       
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_1"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/text_list_primary"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_1"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+        
+        
+        
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_2"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/text_list_primary"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_2"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+        
+        
+        
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_3"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/text_list_primary"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_3"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+        
+        
+        
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_4"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/text_list_primary"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_4"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+        
+        
+        
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_5"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/text_list_primary"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_5"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+                
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_6"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/calendar_red"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_6"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+        
+        
+        
+        <RelativeLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            
+            <TextView 
+	            android:id="@+id/t_7"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:lines="1"
+	            android:textSize="@dimen/text_calendar"
+	            android:textColor="@color/calendar_red"
+	            android:gravity="center|bottom"
+	            android:paddingBottom="@dimen/margin_small"/>
+            
+            <View 
+                android:id="@+id/busy_7"
+			    android:layout_width="@dimen/busy_day_mark_size"
+			    android:layout_height="@dimen/busy_day_mark_size" 
+			    android:background="@color/app_main_color"
+			    android:layout_margin="@dimen/margin_small"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignParentBottom="true"
+			    android:visibility="gone">
+    
+			</View>
+            
+        </RelativeLayout>
+        
+        
+        
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/t_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:textSize="@dimen/text_calendar_month"
+        android:textColor="@color/calendar_selected_item"
+        android:gravity="center"
+        android:text="Month"
+        android:visibility="gone"/> 
+    
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/margin_normal">
+
+       <LinearLayout 
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/margin_normal">
+        
+        <TextView 
+            android:id="@+id/t_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:textStyle="bold"
+            android:text="IE2-EL1"
+            android:textColor="@color/text_list_primary"/>
+        
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text_list_secondary"/>
+
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_small">
+        
+            <TextView 
+                  android:id="@+id/t_start"
+		          android:layout_width="0dp"
+		          android:layout_weight="1"
+		          android:layout_height="wrap_content"
+		          android:textSize="@dimen/text_small"
+		          android:text="08:10"
+		          android:textColor="@color/text_list_primary"/>
+            
+            <TextView 
+                  android:id="@+id/t_end"
+		          android:layout_width="0dp"
+		          android:layout_weight="1"
+		          android:layout_height="wrap_content"
+		          android:gravity="end"
+		          android:textSize="@dimen/text_small"
+		          android:text="11:20"
+		          android:textColor="@color/text_list_primary"/>
+            	            
+        </LinearLayout>
+        
+           
+           <TextView                 
+              android:id="@+id/t_location"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:textSize="@dimen/text_small"
+              android:layout_marginTop="@dimen/margin_small"
+	          android:textColor="@color/text_list_primary"
+	          android:text="0660 Stand 23-032-016"/>
+	            
+       </LinearLayout>
+            	        	    
+    <ImageView 
+        android:id="@+id/icon_priority"
+        android:layout_width="@dimen/icon_medium"
+        android:layout_height="@dimen/icon_medium"
+        android:scaleType="centerInside"
+        android:padding="@dimen/icon_medium_padding"
+        android:src="@drawable/ic_medium"/>
+
+        
+</LinearLayout>

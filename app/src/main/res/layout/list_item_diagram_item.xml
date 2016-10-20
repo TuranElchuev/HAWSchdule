@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_small"
+    android:paddingTop="@dimen/margin_small"
+    android:background="@drawable/diagramview_background_square">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/margin_normal"
+        android:paddingRight="@dimen/margin_normal">
+
+        <ImageView
+            android:id="@+id/icon_enabled"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_enabled"
+            android:padding="@dimen/icon_medium_padding"/>
+
+        <TextView
+            android:id="@+id/t_summary"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold"
+            android:text="Summary"/>
+
+        <TextView
+            android:id="@+id/t_location"
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_small"
+            android:text="Location"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_normal"/>
+
+        <TextView
+            android:id="@+id/t_start"
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_small"
+            android:text="00:00"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_small"
+            android:text="-"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"/>
+
+        <TextView
+            android:id="@+id/t_end"
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_small"
+            android:text="00:00"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/t_allweeks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_xsmall"
+        android:paddingLeft="@dimen/margin_normal"
+        android:paddingRight="@dimen/margin_normal"
+        android:layout_gravity="right"
+        android:text="49, 50, 51"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/diagram_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/diagramview_item_bar"
+            android:background="@color/priority_medium"/>
+
+    </LinearLayout>
+
+</LinearLayout>

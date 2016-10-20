@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/white">
+
+    <com.yev.dev.haw_sched2.views.MySlidingPaneLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/slider" 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="@dimen/navigation_width"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:background="@color/app_main_color">
+
+
+			<LinearLayout
+				android:id="@+id/frame_navigation"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+
+				<Button
+					android:id="@+id/daily"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:text="@string/daily"
+					android:textColor="@color/app_secondary_color"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"/>
+
+				<Button
+					android:id="@+id/weekly"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:text="@string/weekly"
+					android:gravity="left|center_vertical"
+					android:textColor="@color/app_secondary_color"
+					android:paddingLeft="@dimen/margin_large"/>
+
+				<Button
+					android:id="@+id/weekday"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"
+					android:textColor="@color/app_secondary_color"
+					android:text="@string/weekday"/>
+
+				<Button
+					android:id="@+id/subject"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"
+					android:textColor="@color/app_secondary_color"
+					android:text="@string/subject"/>
+
+				<include layout="@layout/horizontal_separator"/>
+
+				<Button
+					android:id="@+id/diagram"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"
+					android:textColor="@color/app_secondary_color"
+					android:text="@string/diagram"/>
+
+				<include layout="@layout/horizontal_separator"/>
+
+				<Button
+					android:id="@+id/calendars"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"
+					android:textColor="@color/app_secondary_color"
+					android:text="@string/calendars"/>
+
+
+
+				<TextView
+					android:id="@+id/empty"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:textSize="@dimen/text_small"
+					android:textColor="@color/app_secondary_color"
+					android:padding="@dimen/margin_normal"
+					android:text="@string/have_no_calendars_my_calendars"/>
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"/>
+
+				<include layout="@layout/horizontal_separator"/>
+
+				<LinearLayout
+					android:id="@+id/share"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:background="@drawable/selector_button"
+					android:gravity="center_vertical"
+					android:clickable="true">
+
+					<ImageView
+						android:layout_width="@dimen/image_button_medium"
+						android:layout_height="@dimen/image_button_medium"
+						android:scaleType="centerInside"
+						android:padding="@dimen/icon_large_padding"
+						android:src="@drawable/share"/>
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="@string/share"
+						android:textSize="@dimen/text_small"
+						android:textColor="@color/app_secondary_color"/>
+
+				</LinearLayout>
+
+			</LinearLayout>
+		    
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </FrameLayout>
+	     
+	</com.yev.dev.haw_sched2.views.MySlidingPaneLayout>
+        
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_width_s"
+        android:background="@drawable/shadow_bottom"/>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shadow_width_s"
+        android:background="@drawable/shadow_top"
+        android:layout_alignParentBottom="true"/>
+    
+    
+</RelativeLayout>

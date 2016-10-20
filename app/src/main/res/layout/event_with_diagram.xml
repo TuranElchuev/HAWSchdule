@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_normal"
+    android:paddingTop="@dimen/margin_normal">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text_list_secondary"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/margin_normal"
+        android:paddingRight="@dimen/margin_normal">
+
+        <TextView
+            android:id="@+id/t_summary"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:textStyle="bold"
+            android:text="Summary"/>
+
+        <TextView
+            android:id="@+id/t_location"
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:text="Location"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_normal"/>
+
+        <TextView
+            android:id="@+id/t_start"
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:text="00:00"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:text="-"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"/>
+
+        <TextView
+            android:id="@+id/t_end"
+            android:layout_width="wrap_content"
+            android:lines="1"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:text="00:00"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_normal">
+
+        <View
+            android:id="@+id/diagram_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/diagramview_item_bar_small"/>
+
+    </LinearLayout>
+
+</LinearLayout>

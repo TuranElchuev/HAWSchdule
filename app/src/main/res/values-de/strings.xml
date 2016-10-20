@@ -1,0 +1,136 @@
+<resources>
+
+    <!--=============TRANSLATE TO GERMAN!!!==================-->
+    <string name="save_configuration">Save configuration</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="nothing_to_save">Nothing to save</string>
+    <string name="saved">SAVED</string>
+    <string name="hide_expired">Hide expired</string>
+    <string name="should_update_schedule">For the first use you should update your schedule.\nGo to My Calendars and press refresh button.</string>
+    <string name="settings">Settings</string>
+    <string name="important">Important</string>
+    <string name="need_storage_permission">The app needs Storage permission for import of calendar files. Please press Ok and allow access in the next dialog. If the next dialog does not appear, relaunch the App and press Settings to proceed to the menu where you can enable Storage permission. For the further questions please contact the developer.</string>
+    <!--======================================================-->
+
+
+    <string name="app_name">HAW Schedule</string>
+    
+    <string name="daily">Täglich</string>
+    <string name="weekly">Wöchentlich</string>
+    <string name="weekday">Wochentag</string>
+    <string name="subject">Fach</string>
+    <string name="calendars">Meine Kalender</string>
+    <string name="diagram">Diagramm</string>
+    <string name="feedback">Feedback</string>
+    <string name="share">Teilen</string>
+
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
+    <string name="saturday">Samstag</string>
+    <string name="sunday">Sonntag</string>
+    
+    <string name="mo">Mo</string>
+    <string name="tu">Di</string>
+    <string name="we">Mi</string>
+    <string name="th">Do</string>
+    <string name="fr">Fr</string>
+    <string name="sa">Sa</string>
+    <string name="su">So</string>
+    
+    <string name="jan">Januar</string>
+    <string name="feb">Februar</string>
+    <string name="mar">März</string>
+    <string name="apr">April</string>
+    <string name="may">Mai</string>
+    <string name="jun">Juni</string>
+    <string name="jul">Juli</string>
+    <string name="auq">August</string>
+    <string name="sep">September</string>
+    <string name="oct">Oktober</string>
+    <string name="nov">November</string>
+    <string name="dec">Dezember</string>
+        
+
+    <string name="ok">OK</string>
+    <string name="cancel">BEENDEN</string>
+    <string name="add">ADD</string>
+    <string name="download_file">Die Datei herunterladen</string>
+    <string name="delete_calendar">Den Kalender löschen</string>
+    <string name="update_all_calendars">Alle Kalender aktualisieren</string>
+    <string name="delete_all_calendars">Alle Kalender löschen</string>
+    <string name="set_prority">Priorität setzen</string>
+    <string name="low">GERINGE</string>
+    <string name="medium">MITTLERE</string>
+    <string name="high">HOHE</string>
+    
+    <string name="added">HINZUGEFÜGT</string>
+    <string name="failed_to_download">DAS HERUNTERLADEN IST FEHLGESCHLAGEN:</string>
+    <string name="failed_to_import">FEHLER BEIM IMPORTIEREN DER DATEI:</string>
+    <string name="failed_to_update">FEHLER BEIM UPDATE:</string>
+    
+    <string name="version">version</string>
+    <string name="imported">wurde importiert</string>
+    
+    
+    <string name="select_day">Den Tag auwählen</string>
+    <string name="select_week">Die Woche auswählen</string>
+    <string name="select_weekday">Den Wochentag auswählen</string>
+    <string name="select_subject">Studienfach auswählen</string>
+    
+    <string name="downloading">Wird heruntergeladen ...</string>
+    <string name="importing">Wird importiert ...</string>
+    <string name="updating_calendars">Aktualisieren von Kalendern ...</string>
+    
+    <string name="download_cancelled">Download abgebrochen</string>
+    
+    <string name="canceled">ABGEBROCHEN</string>
+    <string name="not_all_updated">NICHT ALLE KALENDER WURDEN AKTUALISIERT!</string>
+    <string name="schedule_updated">DER STUNDENPLAN WURDE AKTUALISIERT</string>
+    <string name="all_calendars_deleted">ALLE KALENDER WURDEN GELÖSCHT</string>
+    
+    <string name="have_no_calendars">Sie haben keine Kalender Importiert.</string>
+    <string name="have_no_calendars_add">Sie haben keine Kalender Importiert.\nDrücke das \"ADD\" Zeichen um die kalender herunterzuladen.</string>
+    <string name="have_no_calendars_my_calendars">Sie haben keine Kalender Importiert.\nGehe auf Meine Kalender um Kalender hinzuzufügen.</string>
+
+    
+    <!-- INFO DIALOG -->
+    <string name="info">Info</string>
+    <string name="info_add">Öffnet eine Webseite mit der Liste der Kalender.\nZum Herunterladen wählen Sie einen Kalender aus der Liste aus.\nEin zum zweiten Mal heruntergeladener Kalender wird die vorherige Version überschrieben.</string>
+    <string name="info_update_all">Aktualisiert bestehende kalender auf ihre neueste Version.</string>
+    <string name="info_delete_all">Löscht alle kalender.</string>
+    <string name="info_enabled">\"Aktiviert\"\nIn diesem fall werden die Veranstaltung im Stundenplan angezeigt.</string>
+    <string name="info_disabled">\"Deaktiviert\"\nIn diesem fall werden die Veranstaltung im Stundenplan NICHT angezeigt.</string>
+    <string name="info_high">Veranstaltung mit HOHER Priorität</string>
+    <string name="info_medium">Veranstaltung mit MITTLERER Priorität.</string>
+    <string name="info_low">Veranstaltung mit NIEDRIGER Priorität.</string>
+    <string name="info_priority">*Die prioritäten beeinflussen nichts, sie dienen lediglich wie eine Benachrichtigungsanzeige.</string>
+    
+    
+    <string name="in">in</string>
+    <string name="days">Tagen</string>
+    <string name="ago">vor</string>
+    <string name="yesterday">gestern</string>
+    <string name="today">heute</string>
+    <string name="tomorrow">morgen</string>
+    <string name="weeks">Wochen</string>
+    <string name="this_week">diese Woche</string>
+    <string name="next_week">nächste Woche</string>
+    <string name="last_week">letzte Woche</string>
+    <string name="week_no">Nr. der Woche</string>
+
+    <string name="no_upcoming_events">keine neuen Veranstaltungen.</string>
+    <string name="please_select_subject">Wählen Sie ein Unterrichtsfach.</string>
+    <string name="please_select_weekday">Wählen Sie einen Wochentag.</string>
+    
+    <string name="share_text">HAW Schedule.\nEin Stundenplan APP für die Studenten der Fakultät TI der HAW Hamburg:\n</string>
+    
+    
+</resources>
+
+
+
+
