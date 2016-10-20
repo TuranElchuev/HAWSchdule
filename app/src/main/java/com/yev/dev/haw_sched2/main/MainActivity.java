@@ -57,6 +57,7 @@ protected void onCreate(Bundle savedInstanceState) {
 	getBaseContext().getResources().getDisplayMetrics());
 	*/
 	/*
+
 	ScheduleImporter importer = new ScheduleImporter(this);
 	importer.importSchedule("MyFile.ics", Environment.getExternalStorageDirectory().toString() + Const.TEMP_FILE, Const.PRIORITY_MEDIUM, Const.STATE_ENABLED, System.currentTimeMillis(), false);
 	*/
