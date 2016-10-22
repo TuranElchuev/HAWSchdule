@@ -6,6 +6,7 @@
 
     <dimen name="navigation_width">180dp</dimen>
     <dimen name="navigation_width_large">240dp</dimen>
+    <dimen name="navigation_width_xlarge">280dp</dimen>
     <dimen name="dialog_info_width">280dp</dimen>
     <dimen name="dialog_calendar_width">280dp</dimen>
     <dimen name="dialog_warning_width">280dp</dimen>

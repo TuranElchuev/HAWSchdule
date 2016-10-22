@@ -1,4 +1,4 @@
-package com.yev.dev.haw_sched2.main;
+package com.yev.dev.haw_sched2.activities;
 
 
 import android.app.ActionBar;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.yev.dev.haw_sched2.R;
-import com.yev.dev.haw_sched2.diagramview.DiagramViewActivity;
 import com.yev.dev.haw_sched2.fragments.Fragment_Calendars;
 import com.yev.dev.haw_sched2.fragments.Fragment_Events;
 import com.yev.dev.haw_sched2.fragments.Fragment_Selection;
@@ -118,6 +117,7 @@ private void setupViews() {
 	findViewById(R.id.weekday).setOnClickListener(this);
 	findViewById(R.id.subject).setOnClickListener(this);
 	findViewById(R.id.calendars).setOnClickListener(this);
+	findViewById(R.id.full_calendar).setOnClickListener(this);
 	findViewById(R.id.diagram).setOnClickListener(this);
 	findViewById(R.id.share).setOnClickListener(this);
 
@@ -162,6 +162,16 @@ public void onClick(View v) {
 			setCalendarsFragment();
 			slider.closePane();
 			break;
+		case R.id.full_calendar:
+			if (!slider.isOpen()) {
+				return;
+			}
+
+			Intent intent = new Intent(this, FullScheduleActivity.class);
+			intent.putExtra(FullScheduleActivity.KEY_TYPE, FullScheduleActivity.TYPE_CALENDAR);
+			startActivityForResult(intent, Const.INTENT_SHOW_FULL_SCHEDULE);
+
+			break;
 		case R.id.diagram:
 			if (!slider.isOpen()) {
 				return;
@@ -171,8 +181,9 @@ public void onClick(View v) {
 				return;
 			}
 
-			Intent intent = new Intent(this, DiagramViewActivity.class);
-			startActivityForResult(intent, Const.INTENT_SHOW_DIAGRAM);
+			intent = new Intent(this, FullScheduleActivity.class);
+			intent.putExtra(FullScheduleActivity.KEY_TYPE, FullScheduleActivity.TYPE_DIAGRAM);
+			startActivityForResult(intent, Const.INTENT_SHOW_FULL_SCHEDULE);
 
 			break;
 
@@ -250,7 +261,7 @@ public boolean dataBaseIsEmpty(boolean openPane) {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
-		if(requestCode == Const.INTENT_SHOW_DIAGRAM && resultCode == Activity.RESULT_OK){
+		if(requestCode == Const.INTENT_SHOW_FULL_SCHEDULE && resultCode == Activity.RESULT_OK){
 			setCalendarsFragment();
 		}
 

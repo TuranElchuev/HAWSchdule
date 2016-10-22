@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         android:vmSafeMode="false">
         <activity
-            android:name=".main.MainActivity"
+            android:name=".activities.MainActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,7 +31,7 @@
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
 
-        <activity android:name=".diagramview.DiagramViewActivity"></activity>
+        <activity android:name=".activities.FullScheduleActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.yev.dev.haw_sched2.diagramview;
+package com.yev.dev.haw_sched2.objects;
 
 import android.database.Cursor;
 

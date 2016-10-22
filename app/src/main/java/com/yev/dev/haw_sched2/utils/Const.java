@@ -57,11 +57,11 @@ public class Const {
 
 
 	//INTENT REQUEST CODES
-	public static final int INTENT_SHOW_DIAGRAM = 1000;
+	public static final int INTENT_SHOW_FULL_SCHEDULE = 1000;
 
 
 	//SHARED PREFERENCES KEYS
-	public static final String SPREF_CAN_USE_DIAGRAM_VIEW = "can_use_diagram_view";
+	public static final String SPREF_CAN_USE_DIAGRAM = "can_use_diagram_view";
 
 }
 

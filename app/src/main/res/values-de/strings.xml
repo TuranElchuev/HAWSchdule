@@ -1,6 +1,7 @@
 <resources>
 
     <!--=============TRANSLATE TO GERMAN!!!==================-->
+    <string name="full_calendar">Full calendar</string>
     <string name="save_configuration">Save configuration</string>
     <string name="enabled">Enabled</string>
     <string name="disabled">Disabled</string>

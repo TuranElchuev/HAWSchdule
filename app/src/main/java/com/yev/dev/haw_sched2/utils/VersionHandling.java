@@ -31,7 +31,7 @@ public class VersionHandling {
     public static boolean canUseDiagramView(Activity activity){
 
         SharedPreferences sPref = activity.getPreferences(Activity.MODE_PRIVATE);
-        boolean canUseDiagramView = sPref.getBoolean(Const.SPREF_CAN_USE_DIAGRAM_VIEW, false);
+        boolean canUseDiagramView = sPref.getBoolean(Const.SPREF_CAN_USE_DIAGRAM, false);
 
         if(canUseDiagramView){
             return true;
@@ -69,7 +69,7 @@ public class VersionHandling {
             db.close();
 
             SharedPreferences.Editor ed = sPref.edit();
-            ed.putBoolean(Const.SPREF_CAN_USE_DIAGRAM_VIEW, true);
+            ed.putBoolean(Const.SPREF_CAN_USE_DIAGRAM, true);
             ed.commit();
             return true;
 

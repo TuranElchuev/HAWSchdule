@@ -1,24 +1,37 @@
-package com.yev.dev.haw_sched2.diagramview;
+package com.yev.dev.haw_sched2.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.app.FragmentManager;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.view.View;
 
 import com.yev.dev.haw_sched2.R;
+import com.yev.dev.haw_sched2.fragments.Fragment_Diagram;
+import com.yev.dev.haw_sched2.fragments.Fragment_SubjectsNavigation;
 import com.yev.dev.haw_sched2.utils.Utility;
 import com.yev.dev.haw_sched2.views.MySlidingPaneLayout;
 
 import java.util.ArrayList;
 
 
-public class DiagramViewActivity extends Activity {
+public class FullScheduleActivity extends Activity implements Fragment_SubjectsNavigation.SubjectsNavigationListener {
+
+    public static final String KEY_TYPE = "type";
+    public static final int TYPE_DIAGRAM = 1;
+    public static final int TYPE_CALENDAR = 2;
+    private int type;
 
     private MySlidingPaneLayout slider;
     private Utility util = new Utility();
 
-    public Fragment_DiagramViewContent fragmentContent;
+    public interface FullScheduleActivityListener {
+        public void setSubjectsList(ArrayList<String> subjects, boolean hideExpired);
+    }
+
+    private FullScheduleActivityListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +42,10 @@ public class DiagramViewActivity extends Activity {
             acb.hide();
         }
 
-        setContentView(R.layout.activity_diagram_view);
+        Intent intent = getIntent();
+        type = intent.getIntExtra(KEY_TYPE, TYPE_CALENDAR);
+
+        setContentView(R.layout.activity_full_schedule);
 
         setupViews();
 
@@ -88,30 +104,40 @@ public class DiagramViewActivity extends Activity {
 
     private void setFragments(){
 
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.frame_navigation, new Fragment_DiagramViewNavigation())
+        FragmentManager fm = getFragmentManager();
+
+        fm.beginTransaction()
+                .replace(R.id.frame_navigation, new Fragment_SubjectsNavigation())
                 .commit();
 
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, new Fragment_DiagramViewContent())
-                .commit();
+        switch (type){
+            case TYPE_CALENDAR:
+
+                break;
+            case TYPE_DIAGRAM:
+                fm.beginTransaction()
+                        .replace(R.id.container, new Fragment_Diagram())
+                        .commit();
+                break;
+        }
 
     }
 
 
-    public void setSubjectsList(ArrayList<String> subjects, boolean hideExpired){
-        if(fragmentContent != null){
-            fragmentContent.setSubjectsList(subjects, hideExpired);
+    @Override
+    public void onSubjectsListChanged(ArrayList<String> subjects, boolean hideExpired) {
+        if(listener != null){
+            listener.setSubjectsList(subjects, hideExpired);
         }
     }
 
-    public void changesSaved(){
-
+    @Override
+    public void onChangesSaved() {
         setResult(RESULT_OK);
         finish();
-
     }
 
+    public void setListener(FullScheduleActivityListener listener){
+        this.listener = listener;
+    }
 }

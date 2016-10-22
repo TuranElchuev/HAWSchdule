@@ -1,5 +1,6 @@
-package com.yev.dev.haw_sched2.diagramview;
+package com.yev.dev.haw_sched2.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Point;
@@ -17,15 +18,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.yev.dev.haw_sched2.R;
+import com.yev.dev.haw_sched2.activities.FullScheduleActivity;
+import com.yev.dev.haw_sched2.objects.DiagramView_Item;
 import com.yev.dev.haw_sched2.utils.Const;
 import com.yev.dev.haw_sched2.utils.Utility;
 
 import java.util.ArrayList;
 
 
-public class Fragment_DiagramViewContent extends Fragment {
-
-    private DiagramViewActivity activity;
+public class Fragment_Diagram extends Fragment implements FullScheduleActivity.FullScheduleActivityListener{
 
     private Utility utility = new Utility();
 
@@ -51,8 +52,11 @@ public class Fragment_DiagramViewContent extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
-        activity = (DiagramViewActivity)getActivity();
-        activity.fragmentContent = this;
+        Activity activity = getActivity();
+
+        if(activity instanceof FullScheduleActivity){
+            ((FullScheduleActivity) activity).setListener(this);
+        }
 
         setData();
 
@@ -65,7 +69,7 @@ public class Fragment_DiagramViewContent extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.inflater = inflater;
 
-        View v = inflater.inflate(R.layout.fragment_diagram_view_content, container, false);
+        View v = inflater.inflate(R.layout.fragment_diagram, container, false);
 
         setupViews(v);
 
@@ -87,8 +91,8 @@ public class Fragment_DiagramViewContent extends Fragment {
 
     }
 
-    public void setSubjectsList(ArrayList<String> subjects, boolean hideExpired){
-
+    @Override
+    public void setSubjectsList(ArrayList<String> subjects, boolean hideExpired) {
         this.subjects = subjects;
         this.hideExpired = hideExpired;
 
@@ -100,7 +104,7 @@ public class Fragment_DiagramViewContent extends Fragment {
 
         data = utility.getDiagramViewData(getActivity(), subjects, hideExpired);
 
-        adapter = new MyAdapter(activity, inflater);
+        adapter = new MyAdapter(getActivity(), inflater);
         list.setAdapter(adapter);
     }
 
@@ -146,7 +150,7 @@ public class Fragment_DiagramViewContent extends Fragment {
             for(DiagramView_Item item: weekDayData){
 
                 ((TextView)convertView.findViewById(R.id.t_header)).setText(
-                        activity.getString(utility.getWeekdayNameId(item.WEEKDAY)));
+                        getActivity().getString(utility.getWeekdayNameId(item.WEEKDAY)));
 
                 View item_view = inflater.inflate(R.layout.list_item_diagram_item, null);
 

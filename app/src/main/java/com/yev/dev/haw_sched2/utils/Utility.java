@@ -1,7 +1,6 @@
 package com.yev.dev.haw_sched2.utils;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,15 +8,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.TextView;
 
 import com.yev.dev.haw_sched2.R;
-import com.yev.dev.haw_sched2.diagramview.DiagramView_Item;
+import com.yev.dev.haw_sched2.objects.DiagramView_Item;
 import com.yev.dev.haw_sched2.objects.CalendarRow;
 import com.yev.dev.haw_sched2.objects.Calendar_Item;
 import com.yev.dev.haw_sched2.objects.Event_Item;
@@ -29,8 +23,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
-import static android.R.attr.priority;
 
 
 public class Utility {

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.yev.dev.haw_sched2.diagramview.Fragment_DiagramViewNavigation"
+    tools:context="com.yev.dev.haw_sched2.fragments.Fragment_SubjectsNavigation"
     android:clickable="true">
 
 

@@ -1,4 +1,4 @@
-package com.yev.dev.haw_sched2.diagramview;
+package com.yev.dev.haw_sched2.fragments;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -29,9 +29,15 @@ import com.yev.dev.haw_sched2.utils.Utility;
 import java.util.ArrayList;
 
 
-public class Fragment_DiagramViewNavigation extends Fragment {
+public class Fragment_SubjectsNavigation extends Fragment {
 
-    private DiagramViewActivity activity;
+    public interface SubjectsNavigationListener {
+        public void onSubjectsListChanged(ArrayList<String> subjects, boolean hideExpired);
+
+        public void onChangesSaved();
+    }
+
+    private SubjectsNavigationListener listener;
 
     private Utility utility = new Utility();
 
@@ -56,7 +62,7 @@ public class Fragment_DiagramViewNavigation extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
-        activity = (DiagramViewActivity) getActivity();
+        listener = (SubjectsNavigationListener) getActivity();
 
         setData();
 
@@ -70,7 +76,7 @@ public class Fragment_DiagramViewNavigation extends Fragment {
 
         this.inflater = inflater;
 
-        View v = inflater.inflate(R.layout.fragment_diagram_view_navigation, container, false);
+        View v = inflater.inflate(R.layout.fragment_subjects_navigation, container, false);
 
         setupViews(v);
 
@@ -147,7 +153,7 @@ public class Fragment_DiagramViewNavigation extends Fragment {
         }
 
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
+        final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
 
         alertDialog.setTitle(R.string.save_configuration);
         alertDialog.setMessage(message);
@@ -196,13 +202,13 @@ public class Fragment_DiagramViewNavigation extends Fragment {
             String selection = DBHelper.COL_FILE_URL + " LIKE ?";
             String[] selectionArgs = {item.FILE_URL};
 
-            utility.updateData(activity, DBHelper.TABLE_NAME_SCHEDULE, values, selection, selectionArgs);
+            utility.updateData(getActivity(), DBHelper.TABLE_NAME_SCHEDULE, values, selection, selectionArgs);
         }
 
         Toast.makeText(getActivity(), R.string.saved, Toast.LENGTH_LONG).show();
 
-        if(activity != null){
-            activity.changesSaved();
+        if(listener != null){
+            listener.onChangesSaved();
         }
     }
 
@@ -216,8 +222,8 @@ public class Fragment_DiagramViewNavigation extends Fragment {
             }
         }
 
-        if(activity != null){
-            activity.setSubjectsList(subjects, hideExpired);
+        if(listener != null){
+            listener.onSubjectsListChanged(subjects, hideExpired);
         }
     }
 
@@ -226,10 +232,10 @@ public class Fragment_DiagramViewNavigation extends Fragment {
     private void setData(){
 
         if(data == null){
-            data = utility.getCalendars(activity);
+            data = utility.getCalendars(getActivity());
         }
 
-        adapter = new MyAdapter(activity, inflater);
+        adapter = new MyAdapter(getActivity(), inflater);
         list.setAdapter(adapter);
     }
 

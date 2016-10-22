@@ -10,10 +10,9 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent">
 
-		<LinearLayout
+		<ScrollView
 			android:layout_width="@dimen/navigation_width"
 			android:layout_height="match_parent"
-			android:orientation="vertical"
 			android:background="@color/app_main_color">
 
 
@@ -65,6 +64,16 @@
 					android:text="@string/subject"/>
 
 				<include layout="@layout/horizontal_separator"/>
+
+				<Button
+					android:id="@+id/full_calendar"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"
+					android:textColor="@color/app_secondary_color"
+					android:text="@string/full_calendar"/>
 
 				<Button
 					android:id="@+id/diagram"
@@ -133,8 +142,8 @@
 				</LinearLayout>
 
 			</LinearLayout>
-		    
-        </LinearLayout>
+
+        </ScrollView>
 
         <FrameLayout
             android:id="@+id/container"

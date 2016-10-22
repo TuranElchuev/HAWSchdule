@@ -3,8 +3,8 @@ package com.yev.dev.haw_sched2.fragments;
 import android.app.Fragment;
 import android.os.Bundle;
 
-import com.yev.dev.haw_sched2.main.MainActivity;
-import com.yev.dev.haw_sched2.main.MainActivity.MainActivityCallbacks;
+import com.yev.dev.haw_sched2.activities.MainActivity;
+import com.yev.dev.haw_sched2.activities.MainActivity.MainActivityCallbacks;
 import com.yev.dev.haw_sched2.utils.Const;
 import com.yev.dev.haw_sched2.utils.Utility;
 
