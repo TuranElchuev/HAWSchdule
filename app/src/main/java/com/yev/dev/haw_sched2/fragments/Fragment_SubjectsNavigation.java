@@ -264,7 +264,7 @@ public class Fragment_SubjectsNavigation extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             if(convertView == null){
-                convertView = inflater.inflate(R.layout.list_item_diagram_navigation, null);
+                convertView = inflater.inflate(R.layout.list_item_subjects_navigation, null);
             }
 
             Calendar_Item item = data.get(position);

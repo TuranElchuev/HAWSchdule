@@ -1,11 +1,13 @@
 package com.yev.dev.haw_sched2.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
@@ -23,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yev.dev.haw_sched2.R;
+import com.yev.dev.haw_sched2.activities.OverlapsActivity;
+import com.yev.dev.haw_sched2.interfaces.OnSubjectsConfigurationChangeListener;
 import com.yev.dev.haw_sched2.objects.Calendar_Item;
 import com.yev.dev.haw_sched2.utils.Const;
 import com.yev.dev.haw_sched2.utils.DBHelper;
@@ -40,7 +44,10 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 	private MyAdapter adapter;
 
 	private View v;
-	
+	private View overlaps;
+
+	private OnSubjectsConfigurationChangeListener onSubjectsConfigurationChangeListener;
+
 	//FOR UPDATING PROCESS////////////////////////////
 	private int CURRENT_INDEX;
 	private Calendar_Item CURRENT_ITEM;
@@ -69,8 +76,15 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 	public void onActivityCreated(Bundle savedInstanceState) {
 		
 		super.onActivityCreated(savedInstanceState);
-		
+
+		Activity activity = getActivity();
+		if(activity instanceof OnSubjectsConfigurationChangeListener){
+			onSubjectsConfigurationChangeListener = (OnSubjectsConfigurationChangeListener) activity;
+		}
+
 		setData();
+
+		updateOverlapsButton();
 	}
 	
 	//ON CREATE VIEW
@@ -87,6 +101,11 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 
 	//SETUP VIEWS
 	private void setupViews(){
+
+		overlaps = v.findViewById(R.id.overlaps);
+		((TextView)overlaps.findViewById(R.id.text)).setText(R.string.have_overlaps);
+		overlaps.setOnClickListener(this);
+
 		v.findViewById(R.id.add).setOnClickListener(this);
 		v.findViewById(R.id.update_all).setOnClickListener(this);
 		v.findViewById(R.id.delete_all).setOnClickListener(this);
@@ -113,6 +132,10 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.overlaps:
+			Intent intent = new Intent(getActivity(), OverlapsActivity.class);
+			startActivity(intent);
+			break;
 		case R.id.add:
 			activity.closeSlider();
 			openWeb();
@@ -273,6 +296,9 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 		//
 		
 		adapter.notifyDataSetChanged();
+
+		onSubjectsConfigurationChangeListener.onSubjectsConfigurationChange();
+		updateOverlapsButton();
 	}
 	
 	//DELETE ALL
@@ -298,6 +324,9 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 				Toast.makeText(activity, R.string.all_calendars_deleted, Toast.LENGTH_LONG).show();
 				
 				setData();
+
+				onSubjectsConfigurationChangeListener.onSubjectsConfigurationChange();
+				updateOverlapsButton();
 			}
 		});
 		
@@ -310,7 +339,7 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 		});
 		
 		alertDialog.show();
-			
+
 	}
 	
 	//DELETE
@@ -336,6 +365,9 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 				utility.deleteData(activity, DBHelper.TABLE_NAME_SCHEDULE, selection, selectionArgs);
 								
 				setData();
+
+				onSubjectsConfigurationChangeListener.onSubjectsConfigurationChange();
+				updateOverlapsButton();
 			}
 		});
 		
@@ -512,6 +544,10 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
 			
 			@Override
 			public void onFileImported(String fileUrl) {
+
+				onSubjectsConfigurationChangeListener.onSubjectsConfigurationChange();
+				updateOverlapsButton();
+
 				downloadNextItem(downloader, pDialog);
 			}
 			
@@ -586,8 +622,16 @@ public class Fragment_Calendars extends FragmentForMainActivity implements OnCli
         					Environment.getExternalStorageDirectory().toString() + Const.TEMP_FILE,
         					false);
 	}
-	
-	
+
+
+	private void updateOverlapsButton(){
+		if(utility.getOverlaps(getActivity(), null, true).isEmpty()){
+			overlaps.setVisibility(View.GONE);
+		}else{
+			overlaps.setVisibility(View.VISIBLE);
+		}
+	}
+
 	//======================================INFO===========================================
 	
 	//SHOW INFO DIALOG

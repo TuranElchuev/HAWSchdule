@@ -48,10 +48,21 @@
 	       android:padding="@dimen/icon_large_padding"/>
        
     </LinearLayout>
-    
-   
-        
-    <TextView 
+
+	<include layout="@layout/overlaps_btn"
+		android:id="@+id/overlaps"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/image_button_medium"
+		android:layout_below="@+id/header"/>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/shadow_width_m"
+		android:background="@drawable/shadow_bottom"
+		android:layout_alignTop="@+id/overlaps"/>
+
+
+    <TextView
         android:id="@+id/empty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +81,7 @@
         android:divider="@color/app_main_color"
         android:dividerHeight="1dp"
         android:layout_above="@+id/buttons"
-        android:layout_below="@+id/header">
+        android:layout_below="@+id/overlaps">
         
     </ListView>
 

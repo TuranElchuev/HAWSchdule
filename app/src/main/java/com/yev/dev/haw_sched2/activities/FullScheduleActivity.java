@@ -2,15 +2,16 @@ package com.yev.dev.haw_sched2.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.FragmentManager;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.yev.dev.haw_sched2.R;
 import com.yev.dev.haw_sched2.fragments.Fragment_Diagram;
+import com.yev.dev.haw_sched2.fragments.Fragment_FullCalendar;
 import com.yev.dev.haw_sched2.fragments.Fragment_SubjectsNavigation;
 import com.yev.dev.haw_sched2.utils.Utility;
 import com.yev.dev.haw_sched2.views.MySlidingPaneLayout;
@@ -28,7 +29,7 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
     private MySlidingPaneLayout slider;
     private Utility util = new Utility();
 
-    private Button overlaps;
+    private View overlaps;
 
     private ArrayList<String> subjects;
     private boolean hideExpired = true;
@@ -59,7 +60,8 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
             setFragments();
         }
 
-        overlaps = (Button)findViewById(R.id.overlaps);
+        overlaps = findViewById(R.id.overlaps);
+        ((TextView)overlaps.findViewById(R.id.text)).setText(R.string.have_overlaps);
         overlaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +132,9 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
 
         switch (type){
             case TYPE_CALENDAR:
-
+                fm.beginTransaction()
+                        .replace(R.id.container, new Fragment_FullCalendar())
+                        .commit();
                 break;
             case TYPE_DIAGRAM:
                 fm.beginTransaction()

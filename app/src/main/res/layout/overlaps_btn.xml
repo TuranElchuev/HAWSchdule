@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/image_button_medium"
+    android:clickable="true"
+    android:background="@drawable/selector_button"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/margin_large">
+
+    <ImageView
+        android:id="@+id/overlaps_icon"
+        android:layout_width="@dimen/image_button_small"
+        android:layout_height="@dimen/image_button_small"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_warning"
+        android:layout_marginRight="@dimen/icon_large_padding"/>
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/overlaps"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/app_secondary_color"
+        android:lines="1"/>
+
+</LinearLayout>

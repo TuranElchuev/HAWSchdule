@@ -5,16 +5,10 @@
     tools:context="com.yev.dev.haw_sched2.fragments.Fragment_SubjectsNavigation"
     android:clickable="true">
 
-
-    <include layout="@layout/diagram_view_content_background"/>
-
     <ListView
         android:id="@+id/list"
-        android:layout_marginTop="@dimen/diagramview_header_hours_height"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/app_main_color"
-        android:dividerHeight="1dp">
+        android:layout_height="match_parent">
 
     </ListView>
 

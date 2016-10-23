@@ -38,6 +38,7 @@
     <dimen name="icon_large">60dp</dimen>
 
     <dimen name="image_button_medium">50dp</dimen>
+    <dimen name="image_button_small">25dp</dimen>
 
     <dimen name="icon_small_padding">3dp</dimen>
     <dimen name="icon_medium_padding">6dp</dimen>
@@ -46,7 +47,7 @@
     <dimen name="busy_day_mark_size">5dp</dimen>
 
     <dimen name="shadow_width_l">8dp</dimen>
-    <dimen name="shadow_width_m">4dp</dimen>
+    <dimen name="shadow_width_m">2dp</dimen>
     <dimen name="shadow_width_s">2dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>

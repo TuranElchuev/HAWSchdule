@@ -1,5 +1,6 @@
 package com.yev.dev.haw_sched2.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.yev.dev.haw_sched2.R;
+import com.yev.dev.haw_sched2.interfaces.OnSubjectsConfigurationChangeListener;
 import com.yev.dev.haw_sched2.utils.Const;
 import com.yev.dev.haw_sched2.utils.Downloader;
 import com.yev.dev.haw_sched2.utils.Downloader.OnFileDownloadedListener;
@@ -29,7 +31,9 @@ public class Fragment_Web extends FragmentForMainActivity implements OnClickList
 	
 	private final int MAX_SCALE = 500; 
 	private final int MIN_SCALE = 100;
-			
+
+	private OnSubjectsConfigurationChangeListener onSubjectsConfigurationChangeListener;
+
 	//ON CREATE
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,11 @@ public class Fragment_Web extends FragmentForMainActivity implements OnClickList
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
+
+		Activity activity = getActivity();
+		if(activity instanceof OnSubjectsConfigurationChangeListener){
+			onSubjectsConfigurationChangeListener = (OnSubjectsConfigurationChangeListener) activity;
+		}
 	}
 	
 	//ON CREATE VIEW
@@ -228,6 +237,9 @@ public class Fragment_Web extends FragmentForMainActivity implements OnClickList
 			
 			@Override
 			public void onFileImported(String fileUrl) {
+
+				onSubjectsConfigurationChangeListener.onSubjectsConfigurationChange();
+
 				Toast.makeText(activity, getString(R.string.added) + ": " + utility.getNameFromUrl(fileUrl), Toast.LENGTH_SHORT).show();
 			}
 			

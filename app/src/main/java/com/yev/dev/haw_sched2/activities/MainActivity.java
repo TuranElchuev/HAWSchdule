@@ -14,6 +14,7 @@ import com.yev.dev.haw_sched2.fragments.Fragment_Calendars;
 import com.yev.dev.haw_sched2.fragments.Fragment_Events;
 import com.yev.dev.haw_sched2.fragments.Fragment_Selection;
 import com.yev.dev.haw_sched2.fragments.Fragment_Web;
+import com.yev.dev.haw_sched2.interfaces.OnSubjectsConfigurationChangeListener;
 import com.yev.dev.haw_sched2.utils.Const;
 import com.yev.dev.haw_sched2.utils.DBHelper;
 import com.yev.dev.haw_sched2.utils.PermissionsHandler;
@@ -21,7 +22,7 @@ import com.yev.dev.haw_sched2.utils.Utility;
 import com.yev.dev.haw_sched2.utils.VersionHandling;
 import com.yev.dev.haw_sched2.views.MySlidingPaneLayout;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener, OnSubjectsConfigurationChangeListener {
 
 private MySlidingPaneLayout slider;
 
@@ -349,12 +350,17 @@ public void setWebFragment() {
 			.commit();
 }
 
-    private void updateOverlapsButton(){
-        if(util.getOverlaps(this, null, true).isEmpty()){
-            findViewById(R.id.overlaps).setVisibility(View.GONE);
-        }else{
-            findViewById(R.id.overlaps).setVisibility(View.VISIBLE);
-        }
-    }
+private void updateOverlapsButton(){
+	if(util.getOverlaps(this, null, true).isEmpty()){
+		findViewById(R.id.overlaps_icon).setVisibility(View.GONE);
+	}else{
+		findViewById(R.id.overlaps_icon).setVisibility(View.VISIBLE);
+	}
+}
 
+
+	@Override
+	public void onSubjectsConfigurationChange() {
+		updateOverlapsButton();
+	}
 }

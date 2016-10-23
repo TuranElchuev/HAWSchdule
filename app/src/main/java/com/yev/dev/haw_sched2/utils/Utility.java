@@ -69,7 +69,7 @@ public class Utility {
 
         if(c.moveToFirst()){
             do{
-                if(subjects != null && !subjects.isEmpty()){
+                if(subjects != null){
                     String FILE_URL = c.getString(c.getColumnIndex(DBHelper.COL_FILE_URL));
                     String FILE_NAME = getNameFromUrl(FILE_URL);
 
@@ -390,7 +390,7 @@ public class Utility {
 
 				DiagramView_Item item = new DiagramView_Item(this, c);
 
-				if(subjects == null || subjects.isEmpty()){
+				if(subjects == null){
 
 					if(item.STATE != Const.STATE_ENABLED){
 						continue;
