@@ -89,11 +89,11 @@ public class EventsHolder {
 			return listData.size();
 		}
 		
-		    @Override
-		    public View getView(int position, View convertView, ViewGroup parent) {
-			    			    	
-		    	return setDataToView(position, convertView);
-		    }
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+
+			return setDataToView(position, convertView);
+		}
 	}
 	
 }

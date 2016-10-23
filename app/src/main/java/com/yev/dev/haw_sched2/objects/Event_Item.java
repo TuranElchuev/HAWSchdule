@@ -33,6 +33,7 @@ public class Event_Item {
 	//diagram bar parameters
 	public float startLevel = 0;
 	public float length = 0;
+
 	
 	public Event_Item(Cursor c, Utility utility) {
 
@@ -100,6 +101,22 @@ public class Event_Item {
 		lp.setMargins((int)(screenWidth * startLevel), 0, 0, 0);
 		lp.width = (int)(screenWidth * length);
 		bar.setLayoutParams(lp);
+	}
+
+	public boolean overlapsWith(Event_Item item){
+		long firstStart = new Long(this.START.replace("T", ""));
+		long firstEnd = new Long(this.END.replace("T", ""));
+		long secondStart = new Long(item.START.replace("T", ""));
+		long secondEnd = new Long(item.END.replace("T", ""));
+
+		boolean res = (firstStart <= secondStart && firstEnd > secondStart) || (secondStart <= firstStart && secondEnd > firstStart);
+
+		return res;
+
+		/*return
+				(this.START.compareTo(item.START) == -1 && this.END.compareTo(item.START) != -1)
+				||
+				(item.START.compareTo(this.START) == -1 && item.END.compareTo(this.START) != -1);*/
 	}
 	
 }

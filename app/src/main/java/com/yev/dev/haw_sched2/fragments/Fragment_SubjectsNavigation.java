@@ -35,6 +35,7 @@ public class Fragment_SubjectsNavigation extends Fragment {
         public void onSubjectsListChanged(ArrayList<String> subjects, boolean hideExpired);
 
         public void onChangesSaved();
+
     }
 
     private SubjectsNavigationListener listener;
@@ -225,6 +226,7 @@ public class Fragment_SubjectsNavigation extends Fragment {
         if(listener != null){
             listener.onSubjectsListChanged(subjects, hideExpired);
         }
+
     }
 
 
@@ -237,6 +239,8 @@ public class Fragment_SubjectsNavigation extends Fragment {
 
         adapter = new MyAdapter(getActivity(), inflater);
         list.setAdapter(adapter);
+
+        subjectsListChanged();
     }
 
     //ADAPTER

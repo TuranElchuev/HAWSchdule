@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.FragmentManager;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.view.View;
+import android.widget.Button;
 
 import com.yev.dev.haw_sched2.R;
 import com.yev.dev.haw_sched2.fragments.Fragment_Diagram;
@@ -26,6 +27,11 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
 
     private MySlidingPaneLayout slider;
     private Utility util = new Utility();
+
+    private Button overlaps;
+
+    private ArrayList<String> subjects;
+    private boolean hideExpired = true;
 
     public interface FullScheduleActivityListener {
         public void setSubjectsList(ArrayList<String> subjects, boolean hideExpired);
@@ -52,6 +58,18 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
         if(savedInstanceState == null){
             setFragments();
         }
+
+        overlaps = (Button)findViewById(R.id.overlaps);
+        overlaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FullScheduleActivity.this, OverlapsActivity.class);
+                intent.putExtra(OverlapsActivity.KEY_SUBJECTS, subjects);
+                intent.putExtra(OverlapsActivity.KEY_HIDE_EXPIRED, hideExpired);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //SETUP VIEWS
@@ -126,6 +144,12 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
 
     @Override
     public void onSubjectsListChanged(ArrayList<String> subjects, boolean hideExpired) {
+
+        this.hideExpired = hideExpired;
+        this.subjects = subjects;
+
+        updateOverlapsButton();
+
         if(listener != null){
             listener.setSubjectsList(subjects, hideExpired);
         }
@@ -135,6 +159,14 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
     public void onChangesSaved() {
         setResult(RESULT_OK);
         finish();
+    }
+
+    private void updateOverlapsButton(){
+        if(util.getOverlaps(this, subjects, hideExpired).isEmpty()){
+            overlaps.setVisibility(View.GONE);
+        }else{
+            overlaps.setVisibility(View.VISIBLE);
+        }
     }
 
     public void setListener(FullScheduleActivityListener listener){

@@ -1,7 +1,9 @@
 <resources>
 
     <!--=============TRANSLATE TO GERMAN!!!==================-->
+    <string name="have_overlaps">You have overlaps. Press here to see.</string>
     <string name="full_calendar">Full calendar</string>
+    <string name="overlaps">Overlaps</string>
     <string name="save_configuration">Save configuration</string>
     <string name="enabled">Enabled</string>
     <string name="disabled">Disabled</string>

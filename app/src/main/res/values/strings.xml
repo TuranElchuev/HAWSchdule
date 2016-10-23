@@ -22,6 +22,7 @@
     <string name="calendars">My Calendars</string>
     <string name="diagram">Diagram</string>
     <string name="full_calendar">Full calendar</string>
+    <string name="overlaps">Overlaps</string>
     <string name="feedback">Feedback</string>
     <string name="share">Share</string>
 
@@ -92,6 +93,7 @@
     <string name="all_calendars_deleted">ALL CALENDARS HAVE BEEN DELETED</string>
 
     <string name="have_no_calendars">You have not imported any calendar</string>
+    <string name="have_overlaps">You have overlaps. Press here to see.</string>
     <string name="have_no_calendars_add">You have not imported any calendar.\nPress \"ADD\" button to download calendars.</string>
     <string name="have_no_calendars_my_calendars">You have not imported any calendar.\nGo to \"My Calendars\" to download calendars.</string>
 

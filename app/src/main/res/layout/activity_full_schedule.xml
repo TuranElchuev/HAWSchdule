@@ -4,25 +4,44 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <com.yev.dev.haw_sched2.views.MySlidingPaneLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/slider"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/frame_navigation"
-            android:layout_width="@dimen/navigation_width_xlarge"
-            android:layout_height="match_parent" >
-        </FrameLayout>
+        <Button
+            android:id="@+id/overlaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_button"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_large"
+            android:textColor="@color/app_secondary_color"
+            android:text="@string/have_overlaps"
+            android:visibility="gone"/>
 
-        <FrameLayout
-            android:id="@+id/container"
+        <com.yev.dev.haw_sched2.views.MySlidingPaneLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </FrameLayout>
 
-    </com.yev.dev.haw_sched2.views.MySlidingPaneLayout>
+            <FrameLayout
+                android:id="@+id/frame_navigation"
+                android:layout_width="@dimen/navigation_width_xlarge"
+                android:layout_height="match_parent" >
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </FrameLayout>
+
+        </com.yev.dev.haw_sched2.views.MySlidingPaneLayout>
+
+    </LinearLayout>
+
 
     <View
         android:layout_width="match_parent"

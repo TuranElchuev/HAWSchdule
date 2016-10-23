@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
 import com.yev.dev.haw_sched2.R;
 import com.yev.dev.haw_sched2.objects.DiagramView_Item;
@@ -29,7 +30,106 @@ public class Utility {
 
 	
 	//=================================GET DATA====================================
-	
+
+    //GET OVERLAPS
+    public ArrayList<Object>getOverlaps(Context context, ArrayList<String> subjects, boolean hideExpired){
+        ArrayList<Object> data = new ArrayList<Object>();
+
+        DBHelper dbh = new DBHelper(context);
+        SQLiteDatabase db = dbh.getWritableDatabase();
+
+        String condition = "";
+
+        if(subjects == null || subjects.isEmpty()){
+            condition = " WHERE " + DBHelper.COL_STATE + " = " + Const.STATE_ENABLED;
+        }
+
+        if(hideExpired){
+            if(condition.isEmpty()) {
+                condition = " WHERE ";
+            }else{
+                condition += " AND ";
+            }
+            condition += DBHelper.COL_START + " > \"" + getFormattedTime(System.currentTimeMillis(), Const.DATE_FORMAT_ICS) + "\"";
+        }
+
+        String query = "SELECT * FROM "
+                + DBHelper.TABLE_NAME_SCHEDULE +
+
+                condition
+
+                + " ORDER BY "
+                + DBHelper.COL_START + DBHelper.SORT_ASC;
+
+        Log.d(Const.TAG, query);
+
+        Cursor c = db.rawQuery(query, null);
+
+        ArrayList<Event_Item> allItems = new ArrayList<Event_Item>();
+
+        if(c.moveToFirst()){
+            do{
+                if(subjects != null && !subjects.isEmpty()){
+                    String FILE_URL = c.getString(c.getColumnIndex(DBHelper.COL_FILE_URL));
+                    String FILE_NAME = getNameFromUrl(FILE_URL);
+
+                    if(!subjects.contains(FILE_NAME)){
+                        continue;
+                    }
+                }
+
+                allItems.add(new Event_Item(c, this));
+            }while(c.moveToNext());
+        }
+
+        db.close();
+
+
+        ArrayList<Event_Item> groupOfOverlappingItems = new ArrayList<Event_Item>();
+
+        int firstIndex = 0;
+        int secondIndex = 1;
+
+        while (secondIndex < allItems.size()){
+
+            Event_Item firstItem = allItems.get(firstIndex);
+            Event_Item secondItem = allItems.get(secondIndex);
+
+            if(firstItem.overlapsWith(secondItem)){
+
+                if(!groupOfOverlappingItems.contains(firstItem)) {
+                    groupOfOverlappingItems.add(firstItem);
+                }
+                groupOfOverlappingItems.add(secondItem);
+
+            }else if(!groupOfOverlappingItems.isEmpty()){
+
+                boolean overlapsWithAtLeastOneOfTheGroup = false;
+                for(Event_Item item: groupOfOverlappingItems){
+                    if(item.overlapsWith(secondItem)){
+                        overlapsWithAtLeastOneOfTheGroup = true;
+                        break;
+                    }
+                }
+
+                if(overlapsWithAtLeastOneOfTheGroup){
+                    groupOfOverlappingItems.add(secondItem);
+                }else{
+                    data.add(groupOfOverlappingItems);
+
+                    groupOfOverlappingItems = new ArrayList<Event_Item>();
+                }
+
+            }
+
+            firstIndex++;
+            secondIndex++;
+
+        }
+
+        return data;
+    }
+
 	//GET CALENDARS
 	public ArrayList<Calendar_Item> getCalendars(Context context){
 		ArrayList<Calendar_Item> data = new ArrayList<Calendar_Item>();
@@ -240,7 +340,7 @@ public class Utility {
 	}
 
 
-	//==========================DIAGRAM VIEW DATA==================
+	//==========================FULL SCHEDULE DATA==================
 	//GET DIAGRAM VIEW DATA
 	public ArrayList<ArrayList<DiagramView_Item>> getDiagramViewData(Context context, ArrayList<String> subjects, boolean hideExpired){
 		ArrayList<ArrayList<DiagramView_Item>> data = new ArrayList<ArrayList<DiagramView_Item>>();
@@ -248,8 +348,16 @@ public class Utility {
 		DBHelper dbh = new DBHelper(context);
 		SQLiteDatabase db = dbh.getWritableDatabase();
 
+        String condition = "";
+
+        if(hideExpired){
+            condition = " WHERE " + DBHelper.COL_START + " > \'" + getFormattedTime(System.currentTimeMillis(), Const.DATE_FORMAT_ICS) + "\'";
+        }
+
 		String query = "SELECT * FROM "
 				+ DBHelper.TABLE_NAME_SCHEDULE +
+
+                condition +
 
 				" GROUP BY "
 				+ DBHelper.COL_SUMMARY + ", "
@@ -280,25 +388,9 @@ public class Utility {
 		if(c.moveToFirst()){
 			do{
 
-				if(hideExpired){
-					String endTime = c.getString(c.getColumnIndex(DBHelper.COL_END));
-
-					if(endTime != null){
-						try{
-							DateFormat df = new SimpleDateFormat(Const.DATE_FORMAT_ICS, Const.DEF_LOCALE);
-							Date date = df.parse(endTime);
-							if(date.getTime() < System.currentTimeMillis()){
-								continue;
-							}
-
-						}catch(java.text.ParseException e){}
-					}
-
-				}
-
 				DiagramView_Item item = new DiagramView_Item(this, c);
 
-				if(subjects == null){
+				if(subjects == null || subjects.isEmpty()){
 
 					if(item.STATE != Const.STATE_ENABLED){
 						continue;
@@ -387,7 +479,8 @@ public class Utility {
 
 		return data;
 	}
-	
+
+
 	
 	//==========================HELPER DATA========================
 	

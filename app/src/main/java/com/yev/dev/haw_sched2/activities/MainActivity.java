@@ -119,8 +119,11 @@ private void setupViews() {
 	findViewById(R.id.calendars).setOnClickListener(this);
 	findViewById(R.id.full_calendar).setOnClickListener(this);
 	findViewById(R.id.diagram).setOnClickListener(this);
+    findViewById(R.id.overlaps).setOnClickListener(this);
+    findViewById(R.id.overlaps).setOnClickListener(this);
 	findViewById(R.id.share).setOnClickListener(this);
 
+    updateOverlapsButton();
 }
 
 //ON CLICK
@@ -186,6 +189,15 @@ public void onClick(View v) {
 			startActivityForResult(intent, Const.INTENT_SHOW_FULL_SCHEDULE);
 
 			break;
+        case R.id.overlaps:
+            if (!slider.isOpen()) {
+                return;
+            }
+
+            intent = new Intent(this, OverlapsActivity.class);
+            startActivity(intent);
+
+            break;
 
 		case R.id.share:
 
@@ -261,9 +273,14 @@ public boolean dataBaseIsEmpty(boolean openPane) {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
-		if(requestCode == Const.INTENT_SHOW_FULL_SCHEDULE && resultCode == Activity.RESULT_OK){
-			setCalendarsFragment();
-		}
+		if(requestCode == Const.INTENT_SHOW_FULL_SCHEDULE) {
+
+            updateOverlapsButton();
+
+            if (resultCode == Activity.RESULT_OK) {
+                setCalendarsFragment();
+            }
+        }
 
 	}
 
@@ -331,5 +348,13 @@ public void setWebFragment() {
 			.replace(R.id.container, fragment)
 			.commit();
 }
+
+    private void updateOverlapsButton(){
+        if(util.getOverlaps(this, null, true).isEmpty()){
+            findViewById(R.id.overlaps).setVisibility(View.GONE);
+        }else{
+            findViewById(R.id.overlaps).setVisibility(View.VISIBLE);
+        }
+    }
 
 }

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yev.dev.haw_sched2"
-    >
+    package="com.yev.dev.haw_sched2">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -31,7 +29,8 @@
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
 
-        <activity android:name=".activities.FullScheduleActivity"></activity>
+        <activity android:name=".activities.FullScheduleActivity" />
+        <activity android:name=".activities.OverlapsActivity"></activity>
     </application>
 
 </manifest>

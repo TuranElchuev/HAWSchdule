@@ -97,8 +97,6 @@
 					android:textColor="@color/app_secondary_color"
 					android:text="@string/calendars"/>
 
-
-
 				<TextView
 					android:id="@+id/empty"
 					android:layout_width="wrap_content"
@@ -109,10 +107,15 @@
 					android:padding="@dimen/margin_normal"
 					android:text="@string/have_no_calendars_my_calendars"/>
 
-				<View
+				<Button
+					android:id="@+id/overlaps"
 					android:layout_width="match_parent"
-					android:layout_height="0dp"
-					android:layout_weight="1"/>
+					android:layout_height="wrap_content"
+					android:background="@drawable/selector_button"
+					android:gravity="left|center_vertical"
+					android:paddingLeft="@dimen/margin_large"
+					android:textColor="@color/app_secondary_color"
+					android:text="@string/overlaps"/>
 
 				<include layout="@layout/horizontal_separator"/>
 
