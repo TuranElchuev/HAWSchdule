@@ -67,7 +67,7 @@ public class PermissionsHandler {
         }
     }
 
-    public static void openAppDetailsSettings(Activity activity){
+    private static void openAppDetailsSettings(Activity activity){
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
         Uri uri = Uri.fromParts("package", activity.getPackageName(), null);
         intent.setData(uri);

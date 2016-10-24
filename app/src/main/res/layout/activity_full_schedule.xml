@@ -4,8 +4,37 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+    <LinearLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/selector_button"
+        android:gravity="center_vertical"
+        android:padding="@dimen/margin_small">
+
+        <ImageView
+            android:id="@+id/icon_primary"
+            android:layout_width="@dimen/icon_medium"
+            android:layout_height="@dimen/icon_medium"
+            android:scaleType="fitXY"
+            android:padding="@dimen/icon_medium_padding"
+            android:src="@drawable/ic_back"/>
+
+        <TextView
+            android:id="@+id/text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_secondary_color"
+            android:textSize="@dimen/text_normal"/>
+
+    </LinearLayout>
+
     <include layout="@layout/overlaps_btn"
-        android:id="@+id/overlaps"/>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_button_medium"
+        android:id="@+id/overlaps"
+        android:layout_below="@id/back"/>
 
     <com.yev.dev.haw_sched2.views.MySlidingPaneLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,7 +64,6 @@
         android:background="@drawable/shadow_bottom"/>
 
     <View
-        android:layout_alignTop="@+id/overlaps"
         android:layout_width="match_parent"
         android:layout_height="@dimen/shadow_width_m"
         android:background="@drawable/shadow_bottom"/>

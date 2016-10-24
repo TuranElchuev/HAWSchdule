@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SlidingPaneLayout;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yev.dev.haw_sched2.R;
@@ -26,8 +27,14 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
     public static final int TYPE_CALENDAR = 2;
     private int type;
 
+    private final String SAVESTATE_KEY_SLIDER_IS_OPEN = "slider_is_open";
+
     private MySlidingPaneLayout slider;
     private Utility util = new Utility();
+
+    private ImageView icon_back;
+
+    boolean SLIDER_IS_OPEN = false;
 
     private View overlaps;
 
@@ -58,20 +65,16 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
 
         if(savedInstanceState == null){
             setFragments();
+        }else{
+            SLIDER_IS_OPEN = savedInstanceState.getBoolean(SAVESTATE_KEY_SLIDER_IS_OPEN);
         }
 
-        overlaps = findViewById(R.id.overlaps);
-        ((TextView)overlaps.findViewById(R.id.text)).setText(R.string.have_overlaps);
-        overlaps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FullScheduleActivity.this, OverlapsActivity.class);
-                intent.putExtra(OverlapsActivity.KEY_SUBJECTS, subjects);
-                intent.putExtra(OverlapsActivity.KEY_HIDE_EXPIRED, hideExpired);
-                startActivity(intent);
-            }
-        });
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(SAVESTATE_KEY_SLIDER_IS_OPEN, SLIDER_IS_OPEN);
     }
 
     //SETUP VIEWS
@@ -95,19 +98,64 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
                 contentPane.setAlpha((float) (1 - 0.6 * slideOffset));*/
 
                 navigationPane.setX(navigationPane.getWidth() * (slideOffset - 1));
+
+                icon_back.setRotation(180f * slideOffset);
             }
 
             @Override
             public void onPanelOpened(View panel) {
-
+                SLIDER_IS_OPEN = true;
+                setBackIcon();
             }
 
             @Override
             public void onPanelClosed(View panel) {
-
+                SLIDER_IS_OPEN = false;
+                setBackIcon();
             }
         });
 
+        overlaps = findViewById(R.id.overlaps);
+        ((TextView)overlaps.findViewById(R.id.text)).setText(R.string.have_overlaps);
+        overlaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FullScheduleActivity.this, OverlapsActivity.class);
+                intent.putExtra(OverlapsActivity.KEY_SUBJECTS, subjects);
+                intent.putExtra(OverlapsActivity.KEY_HIDE_EXPIRED, hideExpired);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(slider.isOpen()){
+                    slider.closePane();
+                }else{
+                    slider.openPane();
+                }
+            }
+        });
+
+        switch (type){
+            case TYPE_DIAGRAM:
+                ((TextView)findViewById(R.id.text_primary)).setText(R.string.diagram);
+                break;
+            case TYPE_CALENDAR:
+                ((TextView)findViewById(R.id.text_primary)).setText(R.string.full_calendar);
+                break;
+        }
+
+        icon_back = (ImageView)findViewById(R.id.icon_primary);
+
+    }
+
+    //ON RESUME
+    @Override
+    protected void onResume() {
+        setBackIcon();
+        super.onResume();
     }
 
     //ON BACK PRESSED
@@ -175,5 +223,18 @@ public class FullScheduleActivity extends Activity implements Fragment_SubjectsN
 
     public void setListener(FullScheduleActivityListener listener){
         this.listener = listener;
+    }
+
+
+    private void setBackIcon(){
+        if(icon_back == null){
+            return;
+        }
+
+        if(SLIDER_IS_OPEN){
+            icon_back.setRotation(180f);
+        }else{
+            icon_back.setRotation(0f);
+        }
     }
 }

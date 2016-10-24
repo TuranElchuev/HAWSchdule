@@ -40,6 +40,18 @@
 
     </ListView>
 
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/text_header_color"
+        android:textSize="@dimen/text_xsmall"
+        android:text="@string/have_no_upcoming_overlaps"
+        android:padding="@dimen/margin_normal"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/shadow_width_m"

@@ -32,8 +32,7 @@
         android:textSize="@dimen/text_normal"
         android:textStyle="bold"
         android:text="Summary"
-        android:ellipsize="end"
-        android:textColor="@color/text_list_primary"/>
+        android:ellipsize="end"/>
 
     <android.support.v7.widget.SwitchCompat
         android:layout_width="wrap_content"

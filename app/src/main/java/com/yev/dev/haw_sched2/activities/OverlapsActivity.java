@@ -60,7 +60,11 @@ public class OverlapsActivity extends Activity {
 
         listData = utility.getOverlaps(this, subjects, hideExpired);
 
-        list.setAdapter(new MyAdapter(this, getLayoutInflater()));
+        if(listData.isEmpty()){
+            findViewById(R.id.empty).setVisibility(View.VISIBLE);
+        }else {
+            list.setAdapter(new MyAdapter(this, getLayoutInflater()));
+        }
 
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override

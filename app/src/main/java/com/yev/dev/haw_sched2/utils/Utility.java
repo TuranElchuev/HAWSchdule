@@ -127,6 +127,10 @@ public class Utility {
 
         }
 
+		if(!groupOfOverlappingItems.isEmpty()){
+			data.add(groupOfOverlappingItems);
+		}
+
         return data;
     }
 

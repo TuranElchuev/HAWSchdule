@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/text_header_color"
-        android:textSize="@dimen/text_small"
+        android:textSize="@dimen/text_xsmall"
         android:text="@string/have_no_calendars_add"
         android:padding="@dimen/margin_normal"
         android:layout_centerInParent="true"

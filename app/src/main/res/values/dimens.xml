@@ -1,7 +1,7 @@
 <resources>
 
     <dimen name="diagramview_header_hours_height">20dp</dimen>
-    <dimen name="diagramview_item_bar">30dp</dimen>
+    <dimen name="diagramview_item_bar">20dp</dimen>
     <dimen name="diagramview_item_bar_small">20dp</dimen>
 
     <dimen name="navigation_width">180dp</dimen>

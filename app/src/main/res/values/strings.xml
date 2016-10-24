@@ -94,6 +94,7 @@
 
     <string name="have_no_calendars">You have not imported any calendar</string>
     <string name="have_overlaps">You have overlaps. Press here to see.</string>
+    <string name="have_no_upcoming_overlaps">you have no overlaps</string>
     <string name="have_no_calendars_add">You have not imported any calendar.\nPress \"ADD\" button to download calendars.</string>
     <string name="have_no_calendars_my_calendars">You have not imported any calendar.\nGo to \"My Calendars\" to download calendars.</string>
 
