@@ -73,8 +73,7 @@
 					android:gravity="left|center_vertical"
 					android:paddingLeft="@dimen/margin_large"
 					android:textColor="@color/app_secondary_color"
-					android:text="@string/full_calendar"
-                    android:visibility="gone"/>
+					android:text="@string/full_calendar"/>
 
 				<Button
 					android:id="@+id/diagram"
