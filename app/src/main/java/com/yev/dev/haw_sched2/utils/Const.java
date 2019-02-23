@@ -6,7 +6,7 @@ public class Const {
 
 	public static final String APP_LINK = "https://play.google.com/store/apps/details?id=com.yev.dev.haw_sched2";
 	
-	public static final String URL = "http://www.etech.haw-hamburg.de/Stundenplan/ICS/";
+	public static final String URL = "https://www.haw-hamburg.de/ti-ie/studium/kalenderdateien.html";
 	
 	public static final String TEMP_FILE = "/haw_temp.ics";
 	
