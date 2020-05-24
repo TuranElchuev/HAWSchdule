@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -80,14 +81,15 @@ public class Fragment_Web extends FragmentForMainActivity implements OnClickList
 	        @Override
 	        public boolean shouldOverrideUrlLoading(WebView view, String url) {
 	        	if(url.substring(url.length() - 4, url.length()).equals(".ics")){
-	        		
 	        		confirmDownload(url);
 	        	}
-	            return true;
+				return true;
 	        }
 	    });
-		
-		
+
+		WebSettings webSettings = web.getSettings();
+		webSettings.setJavaScriptEnabled(true);
+
 		web.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) 
 		            {
@@ -102,7 +104,7 @@ public class Fragment_Web extends FragmentForMainActivity implements OnClickList
 		     });
 		
 		
-		web.setInitialScale(400);
+		web.setInitialScale(100);
 				
 		web.loadUrl(Const.URL);
 	}
